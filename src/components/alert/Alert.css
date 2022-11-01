@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 99;
     top: 0%;
-    right: 0%;
+    left: 50%;
 
     display: flex;
     align-items: center;
@@ -10,10 +10,11 @@
     width: 300px;
     height: 60px;
     padding-left: 20px;
-    margin: 40px;
+    margin-top: 40px;
 
     border-radius: 10px;
 
+    transform: translate(-50%, 0);
     animation-duration: 1s;
     animation-name: slidein;
 }
@@ -22,7 +23,7 @@
     position: fixed;
     z-index: 99;
     top: 0%;
-    right: -25%;
+    left: 50%;
 
     display: flex;
     align-items: center;
@@ -30,34 +31,35 @@
     width: 300px;
     height: 60px;
     padding-left: 20px;
-    margin: 40px;
+    margin-top: 40px;
 
     border-radius: 10px;
 
+    transform: translate(-50%, 0);
     animation-duration: 1s;
     animation-name: slideout;
 }
 
 @keyframes slidein {
     from {
-        right: -25%;
+        top: -10%;
         opacity: 0;
     }
 
     to {
-        right: 0%;
+        top: 0%;
         opacity: 1;
     }
 }
 
 @keyframes slideout {
     from {
-        right: 0%;
+        top: 0%;
         opacity: 1;
     }
 
     to {
-        right: -25%;
+        top: -10%;
         opacity: 0;
     }
 }

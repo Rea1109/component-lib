@@ -7,6 +7,7 @@ const Main = () => {
             <Menu title="drag-drop" page="/drag-drop" />
             <Menu title="alert" page="/alert" />
             <Menu title="anchor" page="/anchor" />
+            <Menu title="<select/> element" page="/input-button" />
         </MainContainer>
     );
 };

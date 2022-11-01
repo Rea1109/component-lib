@@ -2,11 +2,7 @@ import { useEffect } from 'react';
 
 const useScroll = () => {
     useEffect(() => {
-        console.log('hook render');
-
-        return () => {
-            console.log('unmount');
-        };
+        return () => {};
     });
 
     return { str: 'string', num: 1 };

@@ -18,7 +18,7 @@ export default Menu;
 const MenuContainer = styled.div`
     display: flex;
     align-items: center;
-    width: 20%;
+    width: 250px;
     height: 50px;
     padding-left: 20px;
     margin: 20px;

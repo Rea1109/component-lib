@@ -65,7 +65,8 @@ const style = css`
     }
 
     body {
-        background-color: #333333;
+        /* background-color: #333333; */
+        background-color: #898989;
     }
 
     button {

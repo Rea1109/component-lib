@@ -21,6 +21,6 @@ const Icon = styled(HomeIcon)`
     cursor: pointer;
 
     :hover {
-        color: white;
+        opacity: 1;
     }
 `;

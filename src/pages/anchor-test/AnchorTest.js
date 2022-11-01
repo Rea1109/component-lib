@@ -9,7 +9,12 @@ const AnchorTest = () => {
     const { str, num } = useScroll();
 
     const handleScroll = ref => () => {
-        sectionRef.current[ref].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        console.log(`현재 스크롤 위치 ${document.documentElement.scrollTop}`);
+        console.log(`좌표 : ${window.pageYOffset + sectionRef.current[ref].getBoundingClientRect().top - 90}`);
+        window.scrollTo({
+            top: window.pageYOffset + sectionRef.current[ref].getBoundingClientRect().top - 90,
+            behavior: 'smooth',
+        });
         setActive(ref + 1);
     };
 
@@ -48,6 +53,9 @@ const AnchorTest = () => {
                         <Text>Section 4</Text>
                     </Section4>
                 </ProductMiddle>
+                <ProductFooter>
+                    <Text>Footer</Text>
+                </ProductFooter>
             </Container>
         </>
     );
@@ -56,14 +64,12 @@ const AnchorTest = () => {
 export default AnchorTest;
 
 const Container = styled.div`
-    width: 80vw;
-    height: 80vh;
+    width: 100%;
+    height: 100%;
     padding: 20px;
     margin: auto;
     margin-top: 100px;
-    border-radius: 10px;
     background-color: white;
-    overflow: scroll;
 `;
 
 const Text = styled.h1`
@@ -87,6 +93,16 @@ const ProductMiddle = styled.div`
     width: 100%;
     margin-bottom: 10px;
     border-radius: 10px;
+`;
+
+const ProductFooter = styled.footer`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    background-color: black;
 `;
 
 const Navbar = styled.nav`
