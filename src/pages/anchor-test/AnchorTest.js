@@ -1,10 +1,16 @@
 import styled from '@emotion/styled';
+import { useRef, useState } from 'react';
 import HomeButton from '../../components/Icon/HomeButton';
+import useScroll from '../../hook/useScroll';
 
 const AnchorTest = () => {
+    const sectionRef = useRef([]);
+    const [active, setActive] = useState(0);
+    const { str, num } = useScroll();
+
     const handleScroll = ref => () => {
-        console.dir(ref.current.scrollHeight);
-        window.scrollTo({ top: ref.current.scrollHeight });
+        sectionRef.current[ref].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setActive(ref + 1);
     };
 
     return (
@@ -16,21 +22,29 @@ const AnchorTest = () => {
                 </ProductTop>
                 <ProductMiddle>
                     <Navbar>
-                        <span>Section 1</span>
-                        <span>Section 3</span>
-                        <span>Section 2</span>
-                        <span>Section 4</span>
+                        <span onClick={handleScroll(0)} style={active === 1 ? { opacity: 1 } : { opacity: 0.5 }}>
+                            Section 1
+                        </span>
+                        <span onClick={handleScroll(1)} style={active === 2 ? { opacity: 1 } : { opacity: 0.5 }}>
+                            Section 2
+                        </span>
+                        <span onClick={handleScroll(2)} style={active === 3 ? { opacity: 1 } : { opacity: 0.5 }}>
+                            Section 3
+                        </span>
+                        <span onClick={handleScroll(3)} style={active === 4 ? { opacity: 1 } : { opacity: 0.5 }}>
+                            Section 4
+                        </span>
                     </Navbar>
-                    <Section1>
+                    <Section1 ref={el => (sectionRef.current[0] = el)}>
                         <Text>Section 1</Text>
                     </Section1>
-                    <Section2>
+                    <Section2 ref={el => (sectionRef.current[1] = el)}>
                         <Text>Section 2</Text>
                     </Section2>
-                    <Section3>
+                    <Section3 ref={el => (sectionRef.current[2] = el)}>
                         <Text>Section 3</Text>
                     </Section3>
-                    <Section4>
+                    <Section4 ref={el => (sectionRef.current[3] = el)}>
                         <Text>Section 4</Text>
                     </Section4>
                 </ProductMiddle>
@@ -103,7 +117,7 @@ const Section1 = styled.section`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 250px;
+    height: 400px;
     margin: 10px 0px;
     border-radius: 10px;
     background-color: #ffecb4;
@@ -114,7 +128,7 @@ const Section2 = styled.section`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 450px;
+    height: 400px;
     margin: 10px 0px;
     border-radius: 10px;
     background-color: #e5d4a2;
@@ -125,7 +139,7 @@ const Section3 = styled.section`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 350px;
+    height: 400px;
     margin: 10px 0px;
     border-radius: 10px;
     background-color: #a09471;
