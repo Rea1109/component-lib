@@ -11,7 +11,7 @@ const AlertTest = () => {
         <Container>
             <HomeButton />
             <AlertButton onClick={() => setSuccessView(true)}>success alert</AlertButton>
-            {successView && <Alert isView={successView} setIsView={setSuccessView} status={'success'} time={2000} />}
+            {successView && <Alert isView={successView} setIsView={setSuccessView} />}
             <AlertButton onClick={() => setErrorView(true)}>error alert</AlertButton>
             {errorView && <Alert isView={errorView} setIsView={setErrorView} status={'error'} time={2000} />}
         </Container>

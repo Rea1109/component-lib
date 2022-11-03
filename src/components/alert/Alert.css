@@ -1,4 +1,4 @@
-.view {
+.alert-view {
     position: fixed;
     z-index: 99;
     top: 0%;
@@ -19,7 +19,7 @@
     animation-name: slidein;
 }
 
-.hidden {
+.alert-hidden {
     position: fixed;
     z-index: 99;
     top: 0%;
@@ -64,14 +64,14 @@
     }
 }
 
-.help-text {
+.alert-text {
     display: inline-block;
     margin-left: 10px;
 
     font-size: 15px;
 }
 
-.icon {
+.alert-icon {
     padding-top: 3px;
     font-size: 20px;
 }
